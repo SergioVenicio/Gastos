@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block body %}
+{% include 'navbar.html' %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <form id="user" class="form" method="POST">
+        {% csrf_token %}
+        <div class="panel panel-primary">
+          <div class="panel-heading lead">Cadastro de Gasto</div>
+            <div class="panel-body">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-10 col-md-offset-1">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <div class="input-group">
+                            <span class="input-group-btn"><p class="btn btn-default active">Itens</p></span>
+                          <select class="form-control" name="items">
+                            {% for item in form.itens %}
+                              <option value="{{ item.pk }}">{{ item.descricao }}</option>
+                            {% endfor %}
+                          </select>
+                          </div>
+                            <hr />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <div class="input-group">
+                            <span class="input-group-btn"><p class="btn btn-default active">Quantidade</p></span>
+                            <input class="form-control" type="number" value="{{ form.quantidade.data | default:'' }}" name="quantidade" required>
+                          </div>
+                            <hr />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <div class="input-group">
+                            <label for="descricao">Descrição</label>
+                            <textarea class="form-control" name="descricao" cols="45" rows="5"></textarea>
+                          </div>
+                          <hr />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-1 col-md-offset-4">
+                        <div class="form-group">
+                          <button class="btn btn-primary" type="submit" name="enviar">Cadastrar</button>
+                        </div>
+                      </div>
+                    </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

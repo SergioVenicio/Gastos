@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block body %}
+{% include 'navbar.html' %}
+<form id="gasto" method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <div class="row">
+        <div class="col-md-1 col-md-offset-4">
+          <div class="form-group">
+            <button class="btn btn-primary" type="submit" name="enviar">Cadastrar</button>
+          </div>
+        </div>
+      </div>
+</form>
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% block body %}
+{% include 'navbar.html' %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <form id="user" class="form" method="POST">
+        {% csrf_token %}
+        <div class="panel panel-primary">
+          <div class="panel-heading lead">Cadastro de usuários</div>
+            <div class="panel-body">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-10 col-md-offset-1">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <div class="input-group">
+                            <span class="input-group-btn"><p class="btn btn-default active">Nome</p></span>
+                            <input class="form-control" type="text" value="{{ form.name.data | default:'' }}" name="name" required />
+                          </div>
+                            <hr />
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <div class="input-group">
+                            <span class="input-group-btn"><p class="btn btn-default active">Email</p></span>
+                            <input class="form-control" type="email" value="{{ form.email.data | default:'' }}" name="email" required />
+                          </div>
+                          <hr />
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <div class="input-group">
+                            <span class="input-group-btn"><p class="btn btn-default active">Salário</p></span>
+                            <input class="form-control" type="number" value="{{ form.salario.data | default:'' }}" name="salario"/>
+                          </div>
+                          <hr />
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <div class="input-group">
+                            <span class="input-group-btn"><p class="btn btn-default active">Senha</p></span>
+                            <input class="form-control" type="password" value="{{ form.senha.data | default:'' }}" name="senha" required/>
+                          </div>
+                          <hr />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-1 col-md-offset-4">
+                        <div class="form-group">
+                          <button class="btn btn-primary" type="submit" name="enviar">Cadastrar</button>
+                        </div>
+                      </div>
+                    </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
