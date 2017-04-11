@@ -43,7 +43,7 @@
                         <div class="form-group">
                           <div class="input-group">
                             <span class="input-group-btn"><p class="btn btn-default active">Salário</p></span>
-                            <input class="form-control" type="number" value="{{ form.salario.data | default:'' }}" name="salario"/>
+                            <input class="form-control" type="text" value="{{ form.valor.data | default:'' }}" name="salario" required />
                           </div>
                           <hr />
                         </div>
