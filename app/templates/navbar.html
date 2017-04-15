@@ -7,10 +7,40 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-        <a class="navbar-brand text-white" href="#">Controle de gastos <i class="fa fa-suitcase"></i></a>
+        <a class="navbar-brand text-white" href="#">Controle de gastos</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
-      
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a class="dropdown-toggle text-white" href="#" data-toggle="dropdown">
+            <i class="fa fa-book"></i> Itens
+            <ul class="dropdown-menu">
+              <li><a href="/item/add/"><i class="fa fa-plus-square-o"></i> Cadastrar</a></li>
+              <li><a href="/itens/list/"><i class="fa fa-calendar-o"></i> Exibir</a></li>
+            </ul>
+          </a>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle text-white" href="#" data-toggle="dropdown">
+            <i class="fa fa-area-chart"></i> Gastos
+            <ul class="dropdown-menu">
+              <li><a href="/gasto/add/"><i class="fa fa-plus-square-o"></i> Cadastrar</a></li>
+              <li><a href="#"><i class="fa fa-calendar-o"></i> Exibir</a></li>
+            </ul>
+          </a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        {% if request.session.user %}
+          <li class="dropdown">
+            <a href="/user/logout/" class="text-white">Sair <i class="fa fa-sign-out text-danger"></i></a>
+          </li>
+        {% else %}
+          <li class="dropdown">
+            <a href="/user/auth"class="text-white">Entrar <i class="fa fa-sign-in"></i></a>
+          </li>
+        {% endif %}
+      </ul>
     </div>
   </div>
 </nav>

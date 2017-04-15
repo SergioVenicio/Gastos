@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block title %} Login {% endblock %}
+{% block body %}
+{% include 'navbar.html' %}
+<div class="margin-top">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <form id="auth_user" class="form" method='POST'>
+            <div class="panel panel-primary">
+              <div class="panel-heading lead">
+                <p class="text-center"><i class="fa fa-user"></i> Login</p>
+              </div>
+              <div class="panel-body">
+                <div class="container-fluid">
+                  <div class="row">
+                    {% csrf_token %}
+                    <div class="col-md-10 col-md-offset-1">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <div class="input-group">
+                              <span class="input-group-btn"><p class="btn btn-default active">Email</p></span>
+                              <input class="form-control" type="email" value="{{ form.email.data | default:'' }}" name="email">
+                            </div>
+                            <hr />
+                          </div>
+                          <div class="form-group">
+                            <div class="input-group">
+                              <span class="input-group-btn"><p class="btn btn-default active">Senha</p></span>
+                              <input class="form-control" type="password" value="{{ form.senha.data | default:'' }}" name="senha">
+                            </div>
+                            <hr />
+                          </div>
+                          <div class="row">
+                            <div class="col-md-12 text-center">
+                              <div class="form-group">
+                                <button class="btn btn-primary" type="submit" name="logar"><i class="fa fa-send"></i> Login</button>
+                                <a class="btn btn-danger" href='/user/add/'><i class="fa fa-address-book-o"></i> Cadastrar-se</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,6 +1,5 @@
 from django.db import models
 
-
 class User(models.Model):
     name = models.CharField(max_length=200)
     email = models.EmailField(max_length=200)
@@ -22,8 +21,6 @@ class Item(models.Model):
 
 class Gasto(models.Model):
     id_user = models.ForeignKey(User)
-    valor = models.DecimalField(max_digits=10, 
-                                decimal_places=2)
     descricao = models.TextField(default='')
     data = models.DateField()
     items = models.ManyToManyField(Item)

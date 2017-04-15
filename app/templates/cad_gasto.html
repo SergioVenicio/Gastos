@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% block title %}Cadastrar Gasto{% endblock %}
 {% block body %}
 {% include 'navbar.html' %}
 <div class="container-fluid">
@@ -18,7 +19,7 @@
                           <div class="input-group">
                             <span class="input-group-btn"><p class="btn btn-default active">Itens</p></span>
                           <select class="form-control" name="items">
-                            {% for item in form.itens %}
+                            {% for item in forms.itens %}
                               <option value="{{ item.pk }}">{{ item.descricao }}</option>
                             {% endfor %}
                           </select>
@@ -45,7 +46,7 @@
                         <div class="form-group">
                           <div class="input-group">
                             <label for="descricao">Descrição</label>
-                            <textarea class="form-control" name="descricao" cols="45" rows="5"></textarea>
+                            <textarea class="form-control" name="descricao" cols="65" rows="5"></textarea>
                           </div>
                           <hr />
                         </div>
@@ -53,9 +54,9 @@
                     </div>
 
                     <div class="row">
-                      <div class="col-md-1 col-md-offset-4">
+                      <div class="col-md-12 text-center">
                         <div class="form-group">
-                          <button class="btn btn-primary" type="submit" name="enviar">Cadastrar</button>
+                          <button class="btn btn-primary" type="submit" name="enviar"><i class="fa fa-plus-square"></i> Cadastrar</button>
                         </div>
                       </div>
                     </div>
