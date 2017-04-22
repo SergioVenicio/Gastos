@@ -4,3 +4,8 @@
 .panel-custom-heading {
     background-color: #F46E42;
 }
+.btn-custom {
+  background-color: #F46E42!important;
+  border-color: #F46E42!important;
+  color: #F5F5F5!important;
+}

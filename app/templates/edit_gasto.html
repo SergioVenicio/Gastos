@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% block title %}Editar Gasto{% endblock %}
+{% block head %}
+{% load static %}
+  <link rel="stylesheet" href="{% static 'css/panel-custom.css' %}" type="text/css"/>
+{% endblock %}
+{% block body %}
+{% include 'navbar.html' %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <form id="user" class="form" method="POST">
+        {% csrf_token %}
+        <div class="panel panel-custom">
+          <div class="panel-heading panel-custom-heading lead">
+            <h5 class="text-white">
+              Editar Gasto
+            </h5>
+          </div>
+            <div class="panel-body">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-10 col-md-offset-1">
+
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <div class="input-group">
+                            <span class="input-group-btn"><p class="btn btn-default active">Item</p></span>
+                          <select class="form-control" name="items">
+                            {{ form.itens }}
+                            {% for item in form.itens %}
+                              <option value="{{ item.pk }}">{{ item.descricao }}</option>
+                            {% endfor %}
+                          </select>
+                          </div>
+                            <hr />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <div class="input-group">
+                            <span class="input-group-btn"><p class="btn btn-default active">Quantidade</p></span>
+                            <input class="form-control" type="text" value="{{ form.gasto.quantidade }}" name="quantidade" required />
+                          </div>
+                            <hr />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <div class="input-group">
+                            <label for="descricao">Descrição</label>
+                            <textarea class="form-control" name="descricao" cols="65" rows="5"> {{ form.gasto.descricao }} </textarea>
+                          </div>
+                          <hr />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-12 text-center">
+                        <div class="form-group">
+                          <button class="btn btn-custom" type="submit" name="enviar"><i class="fa fa-pencil-square-o"></i> Editar</button>
+                        </div>
+                      </div>
+                    </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

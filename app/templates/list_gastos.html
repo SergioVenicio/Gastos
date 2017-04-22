@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block title %}Lista de Gastos{% endblock %}
+{% block head %}
+{% load static %}
+  <link rel="stylesheet" href="{% static 'css/panel-custom.css' %}" type="text/css"/>
+{% endblock %}
+{% block body %}
+{% include 'navbar.html' %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-custom">
+            <div class="panel-heading panel-custom-heading">
+              <h5 class="text-white">Gastos</h5> 
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="table-responsive">
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th class="text-center">#</th>
+                          <th class="text-center">Discrição</th>
+                          <th class="text-center">Item</th>
+                          <th class="text-center">Quantidade</th>
+                          <th class="text-center">Data</th>
+                          <th class="text-center">Total</th>
+                          <th class="text-center">Ações</th>
+                        </tr>
+                      </thead>
+                      <div class="tbody">
+                        {% for gasto in gastos %}
+                          <tr class="text-center">
+                              <td class="col-md-1">{{ gasto.id }}</td>
+                              <td class="col-md-2">{{ gasto.descricao }}</td>
+                              <td class="col-md-2">{{ gasto.items }}</td>
+                              <td class="col-md-1">{{ gasto.quantidade }}</td>
+                              <td class="col-md-2">{{ gasto.data }}</td>
+                              <td class="col-md-2">{{ gasto.total }}</td>
+                              <td>
+                                <a href='/gasto/edit/{{gasto.id}}/' class="btn btn-warning"> Alterar</a>
+                                <a href='/gasto/delete/{{gasto.id}}' class="btn btn-danger"> Excluir</a>
+                              </td>
+                          </tr>
+                        {% endfor %}
+                      </div>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

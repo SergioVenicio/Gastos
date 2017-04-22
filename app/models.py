@@ -23,8 +23,10 @@ class Gasto(models.Model):
     id_user = models.ForeignKey(User)
     descricao = models.TextField(default='')
     data = models.DateField()
-    items = models.ManyToManyField(Item)
+    items = models.ForeignKey(Item)
     quantidade = models.IntegerField()
+    total = models.DecimalField(max_digits=10,
+                                decimal_places=2)
 
     def __str__(self):
         return(self.descricao)
