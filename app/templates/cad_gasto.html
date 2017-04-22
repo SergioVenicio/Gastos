@@ -20,7 +20,7 @@
                             <span class="input-group-btn"><p class="btn btn-default active">Itens</p></span>
                           <select class="form-control" name="items">
                             {% for item in forms.itens %}
-                              <option value="{{ item.pk }}">{{ item.descricao }}</option>
+                              <option value="{{ item.id }}">{{ item.descricao }}</option>
                             {% endfor %}
                           </select>
                           </div>

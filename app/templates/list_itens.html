@@ -39,6 +39,10 @@
                                   <a href='{% url 'delete_item' item.id %}' class="btn btn-danger"> Excluir</a>
                               </td>
                           </tr>
+                          {% empty %}
+                            <h3 class="text-center">Não há itens cadastrados</h3>
+                            <br />
+                            <hr />
                         {% endfor %}
                       </div>
                     </table>

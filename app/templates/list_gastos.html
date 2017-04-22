@@ -45,6 +45,10 @@
                                 <a href='/gasto/delete/{{gasto.id}}' class="btn btn-danger"> Excluir</a>
                               </td>
                           </tr>
+                          {% empty %}
+                          <h3 class="text-center">Não há gastos cadastrados</h3>
+                          <br />
+                          <hr />
                         {% endfor %}
                       </div>
                     </table>

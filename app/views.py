@@ -35,6 +35,7 @@ def cad_user(request):
         if form.is_valid():
             user = form.save(commit=False)
             user.save()
+            request.session['user'] = user.pk
             return render(request, 'index.html')
         else:
             return render(request, 'index.html')
@@ -53,9 +54,9 @@ def cad_item(request):
                 item = form.save(commit=False)
                 item.id_user = user
                 item.save()
-                return redirect('/')
+                return redirect('/itens/list/')
             else:
-                return redirect('/')
+                return redirect('/itens/list/')
         else:
             form = ItemForm()
             return render(request, 'cad_item.html', {'form':form})
@@ -72,16 +73,16 @@ def cad_gasto(request):
             form = GastoForm(request.POST)
             user = User.objects.get(pk=request.session['user'])
             if form.is_valid():
-                item = Item.objects.get(descricao=form.cleaned_data['items'])
+                item = Item.objects.get(descricao=form.cleaned_data.get('items'))
                 gasto = form.save(commit=False)
                 gasto.id_user = user
                 gasto.data = timezone.now()
                 gasto.total = gasto.quantidade * item.valor
                 gasto.save()
                 pass
-                return redirect('/')
+                return redirect('/gastos/list/')
             else:
-                return redirect('/')
+                return redirect('/gastos/list/')
         else:
             form = GastoForm()
             itens = Item.objects.filter(id_user=request.session['user'])
