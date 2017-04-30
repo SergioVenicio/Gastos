@@ -45,8 +45,11 @@ def cad_user(request):
         return render(request, 'cad_user.html', {'form':form})
 
 def cad_item(request):
-    if request.session['user']:
-        valida_login(request.session['user'])
+    try:
+        user = valida_login(request.session['user'])
+    except:
+        user = None
+    if user:
         if request.method == 'POST':
             form = ItemForm(request.POST)
             user = User.objects.get(pk=request.session['user'])
