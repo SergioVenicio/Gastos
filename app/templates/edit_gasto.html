@@ -44,9 +44,10 @@
                         <div class="form-group">
                           <div class="input-group">
                             <span class="input-group-btn"><p class="btn btn-default active">Quantidade</p></span>
-                            <input class="form-control" type="text" value="{{ form.gasto.quantidade }}" name="quantidade" required />
+                            <div class="margin-left">
+                              <input class="form-control" type="text" value="{{ form.gasto.quantidade }}" name="quantidade" required />
+                            </div>
                           </div>
-                            <hr />
                         </div>
                       </div>
                     </div>
@@ -55,10 +56,8 @@
                       <div class="col-md-12">
                         <div class="form-group">
                           <div class="input-group">
-                            <label for="descricao">Descrição</label>
-                            <textarea class="form-control" name="descricao" cols="65" rows="5"> {{ form.gasto.descricao }} </textarea>
+                            <textarea class="form-control" name="descricao" placeholder="Descrição" cols="65" rows="5"> {{ form.gasto.descricao }} </textarea>
                           </div>
-                          <hr />
                         </div>
                       </div>
                     </div>
@@ -66,7 +65,7 @@
                     <div class="row">
                       <div class="col-md-12 text-center">
                         <div class="form-group">
-                          <button class="btn btn-custom" type="submit" name="enviar"><i class="fa fa-pencil-square-o"></i> Editar</button>
+                          <button class="btn btn-primary" type="submit" name="enviar"><i class="fa fa-pencil-square-o"></i> Editar</button>
                         </div>
                       </div>
                     </div>

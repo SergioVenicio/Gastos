@@ -18,9 +18,10 @@
                         <div class="form-group">
                           <div class="input-group">
                             <span class="input-group-btn"><p class="btn btn-default active">Nome</p></span>
-                            <input class="form-control" type="text" value="{{ form.name.data | default:'' }}" name="name" required />
+                            <div class="margin-left">
+                              <input class="form-control" type="text" value="{{ form.name.data | default:'' }}" name="name" required />
+                            </div>
                           </div>
-                            <hr />
                         </div>
                       </div>
                     </div>
@@ -31,9 +32,10 @@
                         <div class="form-group">
                           <div class="input-group">
                             <span class="input-group-btn"><p class="btn btn-default active">Email</p></span>
-                            <input class="form-control" type="email" value="{{ form.email.data | default:'' }}" name="email" required />
+                            <div class="margin-left">
+                              <input class="form-control" type="email" value="{{ form.email.data | default:'' }}" name="email" required />
+                            </div>
                           </div>
-                          <hr />
                         </div>
                       </div>
                     </div>
@@ -44,9 +46,10 @@
                         <div class="form-group">
                           <div class="input-group">
                             <span class="input-group-btn"><p class="btn btn-default active">Salário</p></span>
-                            <input class="form-control" type="text" value="{{ form.valor.data | default:'' }}" name="salario" required />
+                            <div class="margin-left">
+                              <input class="form-control" type="text" value="{{ form.valor.data | default:'' }}" name="salario" required />
+                            </div>
                           </div>
-                          <hr />
                         </div>
                       </div>
                     </div>
@@ -57,9 +60,10 @@
                         <div class="form-group">
                           <div class="input-group">
                             <span class="input-group-btn"><p class="btn btn-default active">Senha</p></span>
-                            <input class="form-control" type="password" value="{{ form.senha.data | default:'' }}" name="senha" required/>
+                            <div class="margin-left">
+                              <input class="form-control" type="password" value="{{ form.senha.data | default:'' }}" name="senha" required/>
+                            </div>
                           </div>
-                          <hr />
                         </div>
                       </div>
                     </div>

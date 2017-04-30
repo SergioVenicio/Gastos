@@ -21,14 +21,18 @@
                           <div class="form-group">
                             <div class="input-group">
                               <span class="input-group-btn"><p class="btn btn-default active">Email</p></span>
-                              <input class="form-control" type="email" value="{{ form.email.data | default:'' }}" name="email">
+                              <div class="margin-left">
+                                <input class="form-control" type="email" value="{{ form.email.data | default:'' }}" name="email">
+                              </div>
                             </div>
                             <hr />
                           </div>
                           <div class="form-group">
                             <div class="input-group">
                               <span class="input-group-btn"><p class="btn btn-default active">Senha</p></span>
-                              <input class="form-control" type="password" value="{{ form.senha.data | default:'' }}" name="senha">
+                              <div class="margin-left">
+                                <input class="form-control" type="password" value="{{ form.senha.data | default:'' }}" name="senha">
+                              </div>
                             </div>
                             <hr />
                           </div>
