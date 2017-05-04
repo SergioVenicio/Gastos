@@ -26,7 +26,7 @@ def auth_user(request):
         return render(request, 'auth_user.html', {'form':form})
 
 def logout(request):
-    request.session['user'] = None
+    del request.session['user']
     return redirect('/')
 
 def cad_user(request):
@@ -99,7 +99,7 @@ def list_gastos(request):
         user = valida_login(request.session['user'])
     except:
         user = None
-    if user:
+    if user != None:
         gastos = Gasto.objects.filter(id_user=request.session['user'])
         return render(request, 'list_gastos.html', {'gastos':gastos})
     else:
@@ -219,7 +219,7 @@ def valida_login(user):
     try:
         user = User.objects.get(pk=user)
         if user:
-            return redirect('/user/auth/')
+            return redirect('/')
         else:
             return redirect('/user/auth/')
     except:
